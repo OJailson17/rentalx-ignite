@@ -24,8 +24,17 @@ class CategoriesRepository {
     this.categories.push(category);
   }
 
-  list(): Category[] {
+  list() {
     return this.categories;
+  }
+
+  findByName(name: string) {
+    const category = this.categories.find(
+      // eslint-disable-next-line comma-dangle
+      (category) => category?.name === name
+    );
+
+    return category;
   }
 }
 
