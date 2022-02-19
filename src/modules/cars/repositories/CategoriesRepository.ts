@@ -29,8 +29,7 @@ class CategoriesRepository implements ICategoriesRepository {
 
   findByName(name: string) {
     const category = this.categories.find(
-      // eslint-disable-next-line comma-dangle
-      (category) => category?.name === name
+      (category) => category?.name === name,
     );
 
     return category;
