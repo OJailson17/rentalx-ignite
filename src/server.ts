@@ -1,10 +1,12 @@
 import express from 'express';
 
-import { CategoriesRoutes } from './routes/category.routes';
+import { categoriesRoutes } from './routes/category.routes';
+import { specificationRoutes } from './routes/specification.routes';
 
 const app = express();
 app.use(express.json());
 
-app.use('/categories', CategoriesRoutes);
+app.use('/categories', categoriesRoutes);
+app.use('/specifications', specificationRoutes);
 
 app.listen(8082, () => console.log('Server is running'));
