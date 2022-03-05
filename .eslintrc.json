@@ -14,6 +14,8 @@
   "rules": {
     "camelcase": "off",
     "linebreak-style": 0,
+    "indent": "off",
+    "object-curly-newline": "off",
     "no-use-before-define": "off",
     "operator-linebreak": "warn",
     "implicit-arrow-linebreak": "off",
