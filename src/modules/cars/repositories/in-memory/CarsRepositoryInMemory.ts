@@ -6,12 +6,14 @@ import { ICarsRepository } from '../ICarsRepository';
 export class CarRepositoryInMemory implements ICarsRepository {
   cars: Car[] = [];
 
-  async create(data: ICreateCarDTO): Promise<void> {
+  async create(data: ICreateCarDTO): Promise<Car> {
     const car = new Car();
 
     Object.assign(car, data);
 
     this.cars.push(car);
+
+    return car;
   }
 
   async findByLicensePlate(license_plate: string): Promise<Car> {
