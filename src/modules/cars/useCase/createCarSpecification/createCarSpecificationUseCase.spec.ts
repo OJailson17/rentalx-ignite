@@ -38,8 +38,19 @@ describe('Create Car Specification', () => {
       category_id: 'categoryID',
     });
 
-    const specifications_id = ['153243'];
+    const specification = await specificationsInMemory.create({
+      name: 'Specification Test',
+      description: 'New Specification',
+    });
 
-    await createCarSpecificationUseCase.execute({ car_id: car.id, specifications_id });
+    const specifications_id = [specification.id];
+
+    const specificationsCar = await createCarSpecificationUseCase.execute({
+      car_id: car.id,
+      specifications_id,
+    });
+
+    expect(specificationsCar).toHaveProperty('specifications');
+    expect(specificationsCar.specifications.length).toBe(1);
   });
 });
