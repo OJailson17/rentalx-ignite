@@ -11,6 +11,8 @@ export class Rental {
 
   date_date: Date;
 
+  end_date: Date;
+
   expected_return_date: Date;
 
   total: number;
