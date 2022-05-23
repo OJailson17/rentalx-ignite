@@ -38,7 +38,9 @@ class AuthenticateUserUseCase {
       throw new AppError('Email or password incorrect');
     }
 
-    const token = sign({}, process.env.JWT_SECRET, {
+    const secret = process.env.JWT_SECRET;
+
+    const token = sign({}, `${secret}`, {
       subject: user.id,
       expiresIn: '1d',
     });
