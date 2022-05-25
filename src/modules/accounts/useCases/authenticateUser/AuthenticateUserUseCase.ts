@@ -42,7 +42,7 @@ class AuthenticateUserUseCase {
 
     const token = sign({}, `${secret}`, {
       subject: user.id,
-      expiresIn: '1d',
+      expiresIn: '30d',
     });
 
     const tokenReturn: IResponse = {
