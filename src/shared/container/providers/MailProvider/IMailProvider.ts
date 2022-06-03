@@ -1,9 +1,10 @@
 export interface ISendMailProps {
   to: string;
   subject: string;
-  body: string;
+  variables: any;
+  path: string;
 }
 
 export interface IMailProvider {
-  sendMail({ to, subject, body }: ISendMailProps): Promise<void>;
+  sendMail({ to, subject, variables, path }: ISendMailProps): Promise<void>;
 }
