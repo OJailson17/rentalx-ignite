@@ -3,3 +3,4 @@
 .env.local
 .vscode
 /tmp
+/coverage
