@@ -1,6 +1,13 @@
+# Folders
 /node_modules
+.vscode
+tmp/*
+/coverage
+/dist
+
+# Files
 .env
 .env.local
-.vscode
-/tmp
-/coverage
+ormconfig.json
+
+!tmp/.gitkeep
