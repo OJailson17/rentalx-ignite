@@ -39,3 +39,30 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           source: "., !node_modules"
           target: "~/app/rentalx-ignite"
+          
+          
+      - name: Update API
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd ~/app/rentalx-ignite
+            yarn
+            ./node_modules/.bin/typeorm migration:run
+            pm2 restart rentalx_api
+          
+          
+          
+          
+          
+          
+
+
+
+
+
+
+
