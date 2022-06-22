@@ -41,18 +41,31 @@ jobs:
           target: "~/app/rentalx-ignite"
           
           
+#       - name: Update API
+#         uses: appleboy/ssh-action@master
+#         with:
+#           host: ${{ secrets.SSH_HOST }}
+#           username: ${{ secrets.SSH_USER }}
+#           port: ${{ secrets.SSH_PORT }}
+#           key: ${{ secrets.SSH_KEY }}
+#           script: |
+#             cd ~/app/rentalx-ignite
+#             yarn
+#             ./node_modules/.bin/typeorm migration:run
+#             pm2 restart rentalx_api
+
+
       - name: Update API
-        uses: appleboy/ssh-action@master
+        uses: fifsky/ssh-action@master
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
+          command: |
             cd ~/app/rentalx-ignite
             yarn
             ./node_modules/.bin/typeorm migration:run
             pm2 restart rentalx_api
+          host: ${{ secrets.SSH_HOST }}
+          user: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY}}
           
           
           
